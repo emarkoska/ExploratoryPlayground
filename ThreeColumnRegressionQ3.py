@@ -1,8 +1,6 @@
 import pandas as pd
 import numpy as np
-from MultipleRegression import OrdinaryLeastSquares
-import matplotlib.pyplot as plt
-import pylab
+from MultipleRegressionQ3 import OrdinaryLeastSquares
 
 #Defining root mean square error as a function to evaluate the model
 def rmse(predictions, targets):
