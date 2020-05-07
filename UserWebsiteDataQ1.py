@@ -6,6 +6,8 @@ def load(path):
     df = pd.read_csv(path)
     return df
 
+# Consider only the rows with country_id = "BDV" (there are 844 such rows). For each site_id, we can compute the number
+# of unique user_id's found in these 844 rows. Which site_id has the largest number of unique users? And what's the number?
 def q1(path):
     """
      We filter the rows of country BDV. Then we group the results by site_id and afterwards
@@ -21,6 +23,9 @@ def q1(path):
     # site_id    5NPAU
     # user_id      544
 
+#Between 2019-02-03 00:00:00 and 2019-02-04 23:59:59, there are four users who visited a certain site more than 10 times.
+# Find these four users & which sites they (each) visited more than 10 times. (Simply provides four triples in the form
+# (user_id, site_id, number of visits) in the box below.)
 def q2(path):
     """
     We convert the timestamps to a datetime format. We select a subset of the original set in range of the two timestamps.
@@ -44,6 +49,10 @@ def q2(path):
     # 485  LC3C7E   3POLC  15
     # 493  LC3C9D   N0OTG  17
 
+#For each site, compute the unique number of users whose last visit (found in the original data set) was to that site.
+# For instance, user "LC3561"'s last visit is to "N0OTG" based on timestamp data. Based on this measure, what are top three sites?
+# (hint: site "3POLC" is ranked at 5th with 28 users whose last visit in the data set was to 3POLC; simply provide three pairs
+# in the form (site_id, number of users).)
 def q3(path):
     """
     First, we find all the unique users. We create a dictionary sites -> number of users.
@@ -67,7 +76,8 @@ def q3(path):
 
     # [('5NPAU', 992), ('N0OTG', 561), ('QGO3G', 289), ('GVOFK', 42), ('3POLC', 28), ('RT9Z6', 2), ('JSUUP', 1), ('EUZ/Q', 1)]
 
-
+#For each user, determine the first site he/she visited and the last site he/she visited based on the timestamp data.
+# Compute the number of users whose first/last visits are to the same website. What is the number?
 def q4(path):
     """
     First, we find a list of unique users. We create dictionaries user:site for the first and last site.
